@@ -3,7 +3,7 @@ from flask import Flask, render_template
 import requests
 import bs4
 
-APP = Flask(__name__)
+app = Flask(__name__)
 
 class Bestseller:
     def __init__(self, title, author, price):
@@ -11,7 +11,7 @@ class Bestseller:
         self.price = price
         self.author = author
 
-@APP.route('/')
+@app.route('/')
 def index():
     bestsellers = get_bestsellers()
     return render_template("index.html", bestsellers=bestsellers)
@@ -30,5 +30,6 @@ def get_bestsellers():
             bestsellers.append(bs)
     return bestsellers
 
-if __name__ == "__main__":
-     APP.run(debug=True, host='127.0.0.1', port=5000)
+# if __name__ == "__main__":
+#     #  app.run(debug=True)
+#     app.run(host='0.0.0.0')
