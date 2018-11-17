@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template
 import requests
 import bs4
@@ -30,6 +29,5 @@ def get_bestsellers():
             bestsellers.append(bs)
     return bestsellers
 
-# if __name__ == "__main__":
-#     #  app.run(debug=True)
-#     app.run(host='0.0.0.0')
+if __name__ == "__main__":
+    app.run(debug=True)
