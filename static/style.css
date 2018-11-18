@@ -1,5 +1,6 @@
 /* Style.css */
 
-.table:not(:last-child) {
-    margin-bottom: 0;
+table {
+    margin: 20px auto;
+    width: 90%;
 }
