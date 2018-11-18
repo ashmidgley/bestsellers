@@ -1,9 +1,8 @@
-
 from flask import Flask, render_template
 import requests
 import bs4
 
-APP = Flask(__name__)
+app = Flask(__name__)
 
 class Bestseller:
     def __init__(self, title, author, price):
@@ -11,7 +10,7 @@ class Bestseller:
         self.price = price
         self.author = author
 
-@APP.route('/')
+@app.route('/')
 def index():
     bestsellers = get_bestsellers()
     return render_template("index.html", bestsellers=bestsellers)
@@ -31,5 +30,4 @@ def get_bestsellers():
     return bestsellers
 
 if __name__ == "__main__":
-    #  PORT = int(os.environ.get("PORT", 5000))
-     APP.run(debug=True, host='0.0.0.0')
+    app.run(debug=True)
