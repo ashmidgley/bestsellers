@@ -13,10 +13,16 @@ class Bestseller:
 @app.route('/')
 def index():
     bestsellers = get_bestsellers()
-    return render_template("index.html", bestsellers=bestsellers)
+    headers = getRequestHeaders()
+    return render_template("index.html", bestsellers=bestsellers, headers=headers)
+
+def getRequestHeaders():
+    res = requests.get('https://www.bookdepository.com/')
+    print(res.headers)
+    return res.headers.values()
 
 def get_bestsellers():
-    res = requests.get('https://www.bookdepository.com/', headers = {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'})
+    res = requests.get('https://www.bookdepository.com/')
     soup = bs4.BeautifulSoup(res.text, 'lxml')
     bestsellers = []
     for i in soup.select('.tab-373 > .tab > .book-item > .item-info'):
