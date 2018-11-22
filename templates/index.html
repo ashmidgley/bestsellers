@@ -27,7 +27,7 @@
         </tr>
         {% for item in bestsellers %}
             <tr class="tbody">
-                <td>{{ item.title }}</td>
+                <td><a href="https://duckduckgo.com/?q={{item.title}} by {{item.author}}">{{ item.title }}</a></td>
                 <td>{{ item.author }}</td>
                 <td>{{ item.price }}</td>
             </tr>
