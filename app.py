@@ -13,13 +13,7 @@ class Bestseller:
 @app.route('/')
 def index():
     bestsellers = get_bestsellers()
-    headers = getRequestHeaders()
-    return render_template("index.html", bestsellers=bestsellers, headers=headers)
-
-def getRequestHeaders():
-    res = requests.get('https://www.bookdepository.com/')
-    print(res.headers)
-    return res.headers.values()
+    return render_template("index.html", bestsellers=bestsellers)
 
 def get_bestsellers():
     res = requests.get('https://www.bookdepository.com/')
@@ -30,7 +24,7 @@ def get_bestsellers():
         author = i.select('.author > span > a > span')[0].text.strip()
         price = 'Unavailable'
         if(i.select('.price-wrap > .price')):
-            price = i.select('.price-wrap > .price')[0].text.strip().split(' ')[0]
+            price = i.select('.price-wrap > .price')[0].text.strip().split('  ')[0]
             bs = Bestseller(title, author, price)
             bestsellers.append(bs)
     return bestsellers
