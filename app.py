@@ -24,7 +24,7 @@ def get_bestsellers():
         author = i.select('.author > span > a > span')[0].text.strip()
         price = 'Unavailable'
         if(i.select('.price-wrap > .price')):
-            price = i.select('.price-wrap > .price')[0].text.strip().split(' ')[0]
+            price = i.select('.price-wrap > .price')[0].text.strip().split('  ')[0]
             bs = Bestseller(title, author, price)
             bestsellers.append(bs)
     return bestsellers
