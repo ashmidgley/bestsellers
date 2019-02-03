@@ -8,3 +8,5 @@ If you pull down the code, you can run the app on http://127.0.0.1:5000/ using:
 ```
 py .\app.py
 ```
+
+Or check it out at https://bestsellers-testing.herokuapp.com/.
