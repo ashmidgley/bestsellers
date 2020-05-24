@@ -1,6 +1,12 @@
-/* Style.css */
-
 table {
     margin: 20px auto;
     width: 90%;
 }
+
+.footer-link {
+    color: inherit;
+}
+
+    .footer-link:hover {
+        text-decoration: underline;
+    }
