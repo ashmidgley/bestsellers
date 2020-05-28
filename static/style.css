@@ -5,8 +5,9 @@ table {
 
 .footer-link {
     color: inherit;
+    text-decoration: underline;
 }
 
     .footer-link:hover {
-        text-decoration: underline;
+        color: #3273dc;
     }
